@@ -2,6 +2,9 @@
 package travelact.sample.controller;
 
 import java.awt.Color;
+import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import travelact.sample.model.*;
 
 public class SignUp extends javax.swing.JFrame {
