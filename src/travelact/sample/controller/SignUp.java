@@ -20,6 +20,14 @@ public class SignUp extends javax.swing.JFrame {
         try {
             RandomAccessFile raf = new RandomAccessFile(f, "rw");
             
+            for(int i = 0; i < ln; i++){
+                raf.readLine();
+            }
+            if(ln > 0){
+                raf.writeBytes("\r\n");
+                raf.writeBytes("\r\n");
+            }
+            
             raf.writeBytes(Email + ",");
             raf.writeBytes(Password + "\r\n");
             raf.writeBytes("First name: " + Fname + "\r\n");
@@ -33,6 +41,33 @@ public class SignUp extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    void checkData() {
+        try {
+            RandomAccessFile raf = new RandomAccessFile(f, "rw");
+            String line = raf.readLine();
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+    }
+    void countLines(){
+        try {
+            ln=0;
+            RandomAccessFile raf = new RandomAccessFile(f, "rw");
+            for(int i=0;raf.readLine()!=null;i++){
+                ln++;
+            }
+            System.out.println("number of lines:"+ln);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     /**
@@ -407,7 +442,10 @@ public class SignUp extends javax.swing.JFrame {
     
     private void SubmitActionPerformed(java.awt.event.ActionEvent evt) {                                       
         // TODO add your handling code here:
+        countLines();
+        checkData();
         addData(Fname.getText(), Lname.getText(), Adress.getText(), Email.getText(), ContactNum.getText(), Password.getText());
+        JOptionPane.showMessageDialog(null,"The account has been registered");
         new SignIn().setVisible(true);
         setVisible(false);
     }
