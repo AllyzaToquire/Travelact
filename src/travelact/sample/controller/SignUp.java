@@ -13,6 +13,25 @@ public class SignUp extends javax.swing.JFrame {
         initComponents();
     }
 
+    void addData(String Fname, String Lname, String Adress, String Email, String ContactNum, String Password){
+        try {
+            RandomAccessFile raf = new RandomAccessFile(f, "rw");
+            
+            raf.writeBytes(Email + ",");
+            raf.writeBytes(Password + "\r\n");
+            raf.writeBytes("First name: " + Fname + "\r\n");
+            raf.writeBytes("Last name: " + Lname + "\r\n");
+            raf.writeBytes("Address: " + Adress + "\r\n");
+            
+            raf.writeBytes("Contact number: " + ContactNum + "\r\n");
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -382,7 +401,13 @@ public class SignUp extends javax.swing.JFrame {
         }
         cPassword.setForeground(new Color(153,153,153));
     }//GEN-LAST:event_cPasswordFocusLost
-
+    
+    private void SubmitActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        // TODO add your handling code here:
+        addData(Fname.getText(), Lname.getText(), Adress.getText(), Email.getText(), ContactNum.getText(), Password.getText());
+        new SignIn().setVisible(true);
+        setVisible(false);
+    }
     /**
      * @param args the command line arguments
      */

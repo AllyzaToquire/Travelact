@@ -221,6 +221,29 @@ public class SignIn extends javax.swing.JFrame {
 
     private void SubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitActionPerformed
         // TODO add your handling code here:
+        String Email = Emailtxt.getText();
+        String Password = Passwordtxt.getText();
+        
+        try {
+            Scanner scan = new Scanner(f);
+            scan.useDelimiter("[,\n]");
+            
+            String email = scan.next();
+            String pass = scan.next();
+            
+                if (Email.equals(email.trim()) && Password.equals(pass.trim()) ){
+                    JOptionPane.showMessageDialog(null, "Log-in successfully!");
+                    new Menu().setVisible(true);
+                    setVisible(false);
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Invalid input!");
+                }
+            
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "No credentials have been registered!");
+        }
+    }
      
      
     }//GEN-LAST:event_SubmitActionPerformed
