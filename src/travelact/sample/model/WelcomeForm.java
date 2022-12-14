@@ -1,6 +1,6 @@
 package travelact.sample.model;
 
-import travelact.sample.controller.SignIn;
+import travelact.sample.controller.SiginIn1;
 import travelact.sample.controller.SignUp;
 
 public class WelcomeForm extends javax.swing.JFrame {
@@ -110,7 +110,7 @@ public class WelcomeForm extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -130,7 +130,7 @@ public class WelcomeForm extends javax.swing.JFrame {
 
     private void SigninActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SigninActionPerformed
         // TODO add your handling code here:
-        new SignIn().setVisible(true);
+        new SiginIn1().setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_SigninActionPerformed
 
@@ -138,6 +138,7 @@ public class WelcomeForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         new SignUp().setVisible(true);
         setVisible(false);
+   
     }//GEN-LAST:event_SignUpActionPerformed
 
     /**
